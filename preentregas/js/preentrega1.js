@@ -1,7 +1,7 @@
 
 let resultado = 0;
 class Producto {
-    constructor(nombre, precio, numeroCuotas, vendido) {
+    constructor(nombre, precio, vendido) {
         this.nombre  = nombre;
         this.precio  = parseFloat(precio);
         this.vendido = false;

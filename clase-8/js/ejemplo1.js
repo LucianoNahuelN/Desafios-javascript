@@ -1,34 +1,29 @@
+let resultado = 0;
 class Producto {
-    constructor(nombre, precio, numeroCuotas, vendido) {
+    constructor(nombre, precio, vendido) {
         this.nombre  = nombre;
         this.precio  = parseFloat(precio);
-        this.numeroCuotas = parseInt(numeroCuotas);
         this.vendido = false;
     }
     sumaIva() {
         this.precio = this.precio * 1.21;
         console.log("Precio final(+IVA): "+ this.precio);
     }
-    cuotas(){
-        let resultado = 0;
-        
-        switch (this.numeroCuotas){
-    
+    cuotas(numeroCuotas){
+       
+       switch (numeroCuotas){
             case 3:
                 resultado = (this.precio * 1.21  /3)  + this.precio * 0.10;
                 alert("Usted debe abonar 3 cuotas de " + resultado);
                 break;
-        
             case 6:
                 resultado = (this.precio * 1.21 /6) + this.precio * 0.20;
                 alert("Usted debe abonar 6 cuotas de " + resultado);
                 break;
-                
             case 12:
                 resultado = (this.precio * 1.21 /12) + this.precio * 0.30;
                 alert("Usted debe abonar 12 cuotas de " + resultado);
                 break;
-        
             default:
                 alert("Opcion no valida");
                 break;
@@ -39,31 +34,24 @@ class Producto {
         alert("¡La compra se ha realizado con exito!")
     }
 }
-
+  let numeroCuotas = parseInt(prompt("Seleccione en cuantas cuotas desea abonar su producto. Cantidad de cuotas permitidas 3, 6 o 12."));
 
 const productos = [
-    new Producto("mate personalizado", "500", 3),
-    new Producto("bombilla personalizada", "150", 3),
-    new Producto("chopp cervecero", "1200", 12),
+    new Producto("mate personalizado", "500"),
+    new Producto("bombilla personalizada", "150"),
+    new Producto("chopp cervecero", "1200"),
 ];
-productos.push(new Producto("mate personalizado2", "50", 3));
-productos.push(new Producto("bombilla personalizada2", "15", 3));
-productos.push(new Producto("chopp cervecero2", "120", 6));
 
-console.log( productos.find( producto => producto.nombre === "chopp cervecero" ) );
 
+for (const producto of productos) {
+    let stock = document.getElementById("stock");
+    let contenedor = document.createElement("div"); 
+contenedor.innerHTML = `<h3>${producto.nombre}</h3>
+                        <p> $ ${producto.precio} </p>`; 
+stock.appendChild(contenedor);
+}
 
 for (const producto of productos)
     producto.sumaIva(),
-    producto.cuotas(),
+    producto.cuotas(numeroCuotas),
     producto.vender()
-
-
-
-
-
-
-
-
-
- 
