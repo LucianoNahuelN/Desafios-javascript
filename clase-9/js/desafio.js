@@ -1,9 +1,8 @@
 let resultado = 0;
 class Producto {
-    constructor(nombre, precio, vendido) {
+    constructor(nombre, precio) {
         this.nombre  = nombre;
         this.precio  = parseFloat(precio);
-        this.vendido = false;
     }
     sumaIva() {
         this.precio = this.precio * 1.21;
@@ -29,17 +28,11 @@ class Producto {
                 break;
         }
     }
-    vender() {
-        this.vendido = true;
-        alert("¡La compra se ha realizado con exito!")
-    }
 }
-  let numeroCuotas = parseInt(prompt("Seleccione en cuantas cuotas desea abonar su producto. Cantidad de cuotas permitidas 3, 6 o 12."));
+//   let numeroCuotas = parseInt(prompt("Seleccione en cuantas cuotas desea abonar su producto. Cantidad de cuotas permitidas 3, 6 o 12."));
 
 const productos = [
     new Producto("mate personalizado", "500"),
-    new Producto("bombilla personalizada", "150"),
-    new Producto("chopp cervecero", "1200"),
 ];
 
 
@@ -47,12 +40,15 @@ for (const producto of productos) {
     let stock = document.getElementById("stock");
     let contenedor = document.createElement("div"); 
 contenedor.innerHTML = `<h3>${producto.nombre}</h3>
-                        <p> $ ${producto.precio} </p>`; 
+                        <p> $ ${producto.precio} </p>
+                        <button id="btn-comprar">${"Comprar"}</button>`; 
 stock.appendChild(contenedor);
 }
 
-for (const producto of productos)
-    producto.sumaIva(),
-    producto.cuotas(numeroCuotas),
-    producto.vender()
+
+let boton = document.getElementById("btn-comprar")
+boton.addEventListener("click", vender)
+function vender (){
+  alert("¡La compra se ha realizado con exito!");
+}
 

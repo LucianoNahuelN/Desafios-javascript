@@ -34,7 +34,7 @@ class Producto {
         alert("¡La compra se ha realizado con exito!")
     }
 }
-  let numeroCuotas = parseInt(prompt("Seleccione en cuantas cuotas desea abonar su producto. Cantidad de cuotas permitidas 3, 6 o 12."));
+//   let numeroCuotas = parseInt(prompt("Seleccione en cuantas cuotas desea abonar su producto. Cantidad de cuotas permitidas 3, 6 o 12."));
 
 const productos = [
     new Producto("mate personalizado", "500"),
@@ -47,12 +47,24 @@ for (const producto of productos) {
     let stock = document.getElementById("stock");
     let contenedor = document.createElement("div"); 
 contenedor.innerHTML = `<h3>${producto.nombre}</h3>
-                        <p> $ ${producto.precio} </p>`; 
+                        <p> $ ${producto.precio} </p>
+                        <button id="btn-comprar">${"Comprar"}</button>`; 
 stock.appendChild(contenedor);
 }
 
-for (const producto of productos)
-    producto.sumaIva(),
-    producto.cuotas(numeroCuotas),
-    producto.vender()
+// for (const producto of productos)
+//     producto.sumaIva(),
+//     producto.cuotas(numeroCuotas),
+//     producto.vender()
 
+let boton = document.getElementById("btn-comprar")
+boton.addEventListener("click", respuestaClick)
+function respuestaClick(){
+  console.log("Respuesta evento");
+}
+
+// let boton = document.getElementsByClassName("btn-comprar")
+// boton.addEventListener("click", respuestaClick)
+// function respuestaClick(){
+//   console.log("Respuesta evento");
+// }
