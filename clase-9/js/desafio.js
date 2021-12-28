@@ -31,6 +31,13 @@ class Producto {
 }
 //   let numeroCuotas = parseInt(prompt("Seleccione en cuantas cuotas desea abonar su producto. Cantidad de cuotas permitidas 3, 6 o 12."));
 
+
+
+
+/*USANDO ID SI FUNCIONA*/
+
+
+
 const productos = [
     new Producto("mate personalizado", "500"),
 ];
@@ -52,3 +59,46 @@ function vender (){
   alert("¡La compra se ha realizado con exito!");
 }
 
+
+
+/*CON CLASS NO FUNCIONA*/
+
+
+
+// const productos = [
+//     new Producto("mate personalizado", "500"),
+// ];
+
+
+// for (const producto of productos) {
+//     let stock = document.getElementById("stock");
+//     let contenedor = document.createElement("div"); 
+// contenedor.innerHTML = `<h3>${producto.nombre}</h3>
+//                         <p> $ ${producto.precio} </p>
+//                         <button class="btn-comprar">${"Comprar"}</button>`; 
+// stock.appendChild(contenedor);
+// }
+
+// let boton = document.getElementsByClassName("btn-comprar")
+// boton.addEventListener("click", respuestaClick)
+// function respuestaClick(){
+//   console.log("Respuesta evento");
+// }
+
+
+
+/*probando con onclick no funciona tampoco */
+
+
+
+// const productos = [
+//     new Producto("mate personalizado", "500"),
+// ];
+// for (const producto of productos) {
+//     let stock = document.getElementById("stock");
+//     let contenedor = document.createElement("div");
+// contenedor.innerHTML = `<h3>${producto.nombre}</h3>
+//                         <p> $ ${producto.precio} </p>
+//                         <button onclick="alert("¡La compra se ha realizado con exito!";)">${"Comprar"}</button>`;
+// stock.appendChild(contenedor);
+// }
